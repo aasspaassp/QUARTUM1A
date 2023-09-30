@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
 
 // This section will help you get a single record by id
 router.get("/:id", async (req, res) => {
-  let collection = await db.collection("propiedades");
+  let collection = await db.collection("Propiedades");
   let query = {_id: new ObjectId(req.params.id)};
   let result = await collection.findOne(query);
 
