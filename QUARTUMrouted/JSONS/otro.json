@@ -1,0 +1,32 @@
+{
+    "MainAddress": "Botánico",
+    "Zona": "Conkal",
+    "Precio": 2990000,
+    "Coordinates": [
+        21.0448395,
+        -89.6917065
+    ],
+    "ShortDescription": "Hermosa casa en Conkal, 3 habitaciones, 3.5 baños. Entrega Inmediata",
+    "Renta": false,
+    "Venta": true,
+    "Fotos": [
+        "https://drive.google.com/file/d/1i-NUcESFGwNa0kqowlUNrkB2TjvVcDvt/view?usp=drive_link",
+        "https://drive.google.com/file/d/1xCKSEfnYopnaj4gtx3vMkOzEF5-zv7Sd/view?usp=drive_link",
+        "https://drive.google.com/file/d/1jO0gONhhyOWkJz-1k8H3C7E10iHhXrey/view?usp=drive_link"
+    ],
+    "Recamaras": 3,
+    "Baños": 3.5,
+    "Estacionamiento": 2,
+    "MetrosConstruccion": 179,
+    "MetrosTerreno": 264,
+    "Niveles": 2,
+    "Equipamento": [
+        "Cocina Equipada"
+    ],
+    "Amenidades": [
+        "Gimnasio",
+        "Canchas",
+        "Grill",
+        "Juegos infantiles"
+    ]
+}

@@ -58,7 +58,8 @@ export default function PropiedadesList() {
  // This method fetches the propiedads from the database.
  useEffect(() => {
    async function getPropiedades() {
-     const response = await fetch(`${window.location.origin}/propiedades`);
+    // TO DO Add development mode
+     const response = await fetch(`http://localhost:5050/propiedades`);
  
      if (!response.ok) {
        const message = `An error occurred: ${response.statusText}`;

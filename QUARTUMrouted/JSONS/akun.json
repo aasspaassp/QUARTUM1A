@@ -1,0 +1,37 @@
+{
+    "MainAddress": "Akún",
+    "Zona": "Country",
+    "Precio": 2400000,
+    "Coordinates": [
+        21.0741279,
+        -89.6934964
+    ],
+    "ShortDescription": "Máximo confort, todo en un mismo lugar. Departamentos de lujo en zona country con más de 20 amenidades. Estacionamiento.",
+    "Renta": false,
+    "Venta": true,
+    "Fotos": [
+        "https://drive.google.com/file/d/1YDVtMfVQpMv-kZ4OfdU2Ah0C2VsxIWIl/view?usp=drive_link",
+        "https://drive.google.com/file/d/1tPjrTHedJURqEjC413HSFKV-DlOl54NO/view?usp=drive_link",
+        "https://drive.google.com/file/d/1pGd9cFjSS-NXPny7fH7jwkkfavZOuvtN/view?usp=drive_link",
+        "https://drive.google.com/file/d/1bmpzdZvdLBylvRt8__SPOxK1OGNp-4Sr/view?usp=drive_link",
+        "https://drive.google.com/file/d/1UoQMUH4lMPZST08q8xTZAHrfrd2pPtnC/view?usp=drive_link"
+    ],
+    "Recamaras": 1,
+    "Baños": 1.5,
+    "Estacionamiento": 1,
+    "MetrosConstruccion": 50,
+    "MetrosTerreno": 50,
+    "Niveles": 1,
+    "Equipamento": [
+        "Cocina Equipada",
+        "Sala de estar"
+    ],
+    "Amenidades": [
+        "Piscina",
+        "Gimnasio",
+        "Cine",
+        "Teen Lounge",
+        "Capilla",
+        "Restaurante"
+    ]
+}
