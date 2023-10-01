@@ -2,7 +2,7 @@ import { Outlet, Link, useLoaderData, Form } from "react-router-dom";
 
 export async function loader() {
   // TO DO Add development mode
-  const response = await fetch(`http://localhost:5050/propiedades`);
+  const response = await fetch(`/propiedades`);
 
   if (!response.ok) {
     const message = `An error occurred: ${response.statusText}`;
@@ -17,7 +17,7 @@ export async function loader() {
 
 export async function action(propiedad) {
   try {
-    const response = await fetch("http://localhost:5050/propiedades", {
+    const response = await fetch("/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
