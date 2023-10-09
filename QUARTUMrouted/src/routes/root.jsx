@@ -2,7 +2,7 @@ import { Outlet, Link, useLoaderData, Form } from "react-router-dom";
 
 export async function loader() {
   // TO DO Add development mode
-  const response = await fetch(`/propiedades`);
+  const response = await fetch(`http://localhost:5050/propiedades`);
 
   if (!response.ok) {
     const message = `An error occurred: ${response.statusText}`;
