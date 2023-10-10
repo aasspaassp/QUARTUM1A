@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet, redirect } from 'react-router-dom'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
@@ -14,6 +14,7 @@ function classNames(...classes) {
 }
 
 export default function Nav() {
+  
   return (
     <>
     <Disclosure as="nav" className="bg-gray-800">
@@ -86,7 +87,7 @@ export default function Nav() {
       )}
     </Disclosure>
     <Outlet />
-    
+
     </>
   )
 }
