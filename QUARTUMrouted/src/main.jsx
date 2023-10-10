@@ -17,17 +17,21 @@ import {
   redirect,
 } from "react-router-dom";
 
+const toPropiedades = async () => {
+ 
+  if (!true) {
+    return redirect("/propiedades");
+  }
+  return null;
+};
+
 
 const router = createBrowserRouter([
   {
     path: "/",
     // refactor
     Component: Nav,
-    loader: () => {
-      if (true) {
-        return redirect("/propiedades");
-      }
-    },
+    loader: toPropiedades,
     errorElement: <ErrorPage />,
     children: [
       {
