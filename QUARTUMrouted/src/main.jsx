@@ -14,6 +14,7 @@ import {
   RouterProvider,
   Link,
   Outlet,
+  redirect,
 } from "react-router-dom";
 
 
@@ -22,6 +23,11 @@ const router = createBrowserRouter([
     path: "/",
     // refactor
     Component: Nav,
+    loader: () => {
+      if (true) {
+        return redirect("/propiedades");
+      }
+    },
     errorElement: <ErrorPage />,
     children: [
       {
