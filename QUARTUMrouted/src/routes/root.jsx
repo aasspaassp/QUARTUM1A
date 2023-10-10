@@ -1,4 +1,4 @@
-import { Outlet, Link, useLoaderData, Form } from "react-router-dom";
+import { Link, useLoaderData, Form, Outlet } from "react-router-dom";
 
 export async function loader() {
   // TO DO Add development mode
@@ -42,56 +42,48 @@ export default function Root() {
   const { propiedades } = useLoaderData();
   return (
     <>
-      <div id="sidebar">
-        <h1>QUARTUM</h1>
-        <div>
-          <form id="search-form" role="search">
-            <input
-              id="q"
-              aria-label="Buscar propiedades"
-              placeholder="Buscar"
-              type="search"
-              name="q"
-            />
-            <div
-              id="search-spinner"
-              aria-hidden
-              hidden={true}
-            />
-            <div
-              className="sr-only"
-              aria-live="polite"
-            ></div>
-          </form>
-          <Form method="post">
-            <button type="submit">New</button>
-          </Form>
-        </div>
-        <nav>
-          {propiedades.length ? (
-            <ul>
-              {propiedades.map((propiedad) => (
-                <li key={propiedad._id}>
-                  <Link to={`propiedades/${propiedad._id}`}>
-                    {propiedad.MainAddress ? (
-                      <>
-                        <h2>{propiedad.MainAddress}</h2><h2>{propiedad.Zona}</h2>
-                      </>
-                    ) : (
-                      <i>No Name</i>
-                    )}{" "}
+      <div>
+        {propiedades.length ? (
+          <div className="bg-white py-24 sm:py-32">
+            <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
+              <div className="max-w-2xl">
+                <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Conoce nuestras propiedades:</h2>
+                <p className="mt-6 text-lg leading-8 text-gray-600">
+                  Renta y venta de propiedades amplias, cómodas y seguras.
+                </p>
+              </div>
+              <ul role="list" className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
+                {propiedades.map((propiedad) => (
+                  <Link to={`/${propiedad._id}`}>
+                  <li key={propiedad._id}>
+                    <div className="flex items-center gap-x-6">
+                      <div key={propiedad.Fotos[0]}>
+                        <img
+                          src={`https://drive.google.com/uc?export=view&id=${propiedad.Fotos[0].slice(propiedad.Fotos[0].indexOf("d/") + 2, propiedad.Fotos[0].indexOf("/view"))}` || null}
+                          alt="foto propiedad"
+                          loading="lazy"
+                          className="h-full w-full object-cover object-center"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">{propiedad.MainAddress}</h3>
+                        <p className="text-sm font-semibold leading-6 text-indigo-600">${propiedad.Precio}</p>
+                      </div>
+                    </div>
+                  </li>
                   </Link>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>
-              <i>No contacts</i>
-            </p>
-          )}
-        </nav>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ) : (
+          <p>
+            <i>No propiedades</i>
+          </p>
+        )}
       </div>
-      <div id="detail"><Outlet /></div>
+
+
     </>
   );
 }

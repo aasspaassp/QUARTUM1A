@@ -5,7 +5,7 @@ import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
 
 export async function loader({ params }) {
-  const response = await fetch('/propiedades/' + params.propiedadId);
+  const response = await fetch(`/${params.propiedadId}`);
   if (!response.ok) {
     const message = `An error occurred: ${response.statusText}`;
     window.alert(message);
@@ -22,8 +22,8 @@ function classNames(...classes) {
 }
 
 const breadcrumbs = [
-  { id: 1, name: 'QUARTUM', href: '#' },
-  { id: 2, name: 'propiedades', href: '#' },
+  { id: 1, name: 'Quartum', href: '#' },
+  { id: 2, name: 'Propiedades', href: '#' },
 ]
 const reviews = { href: '#', average: 4, totalCount: 117 }
 
@@ -44,8 +44,6 @@ export default function Propiedad() {
       />
     </div>
   )
-
-  console.log(fotos)
 
 
 
@@ -116,7 +114,9 @@ export default function Propiedad() {
             <div className="mt-6">
               <h3 className="sr-only">Reviews</h3>
               <div className="flex items-center">
+              <p>Calificación:</p>
                 <div className="flex items-center">
+                
                   {[0, 1, 2, 3, 4].map((rating) => (
                     <StarIcon
                       key={rating}
@@ -128,10 +128,9 @@ export default function Propiedad() {
                     />
                   ))}
                 </div>
-                <p className="sr-only">{reviews.average} out of 5 stars</p>
-                <a href={reviews.href} className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                  {reviews.totalCount} reviews
-                </a>
+    
+                <p className="sr-only">{reviews.average}</p>
+        
               </div>
             </div>
 
@@ -210,7 +209,7 @@ export default function Propiedad() {
           <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
             {/* Description and details */}
             <div>
-              <h3 className="sr-only">Description</h3>
+              <h3 className="sr-only">Descripción:</h3>
 
               <div className="space-y-6">
                 <p className="text-base text-gray-900">{propiedad.ShortDescription}</p>
@@ -218,7 +217,7 @@ export default function Propiedad() {
             </div>
 
             <div className="mt-10">
-              <h3 className="text-sm font-medium text-gray-900">Highlights</h3>
+              <h3 className="text-sm font-medium text-gray-900">Amenidades:</h3>
 
               <div className="mt-4">
                 <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
@@ -236,6 +235,27 @@ export default function Propiedad() {
 
               <div className="mt-4 space-y-6">
                 <p className="text-sm text-gray-600">{propiedad.Zona}</p>
+              </div>
+            </div>
+            <div className="mt-10">
+              <h2 className="text-sm font-medium text-gray-900">Metros cuadrados:</h2>
+
+              <div className="mt-4 space-y-6">
+                <p className="text-sm text-gray-600">{propiedad.MetrosConstruccion}m²</p>
+              </div>
+            </div>
+            <div className="mt-10">
+              <h2 className="text-sm font-medium text-gray-900">Recámaras:</h2>
+
+              <div className="mt-4 space-y-6">
+                <p className="text-sm text-gray-600">{propiedad.Recamaras}</p>
+              </div>
+            </div>
+            <div className="mt-10">
+              <h2 className="text-sm font-medium text-gray-900">Niveles:</h2>
+
+              <div className="mt-4 space-y-6">
+                <p className="text-sm text-gray-600">{propiedad.Niveles}</p>
               </div>
             </div>
           </div>
