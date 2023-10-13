@@ -21,6 +21,23 @@ router.get("/:id", async (req, res) => {
   else res.send(result).status(200);
 });
 
+router.get("/filtro/renta", async (req, res) => {
+  let collection = await db.collection("Propiedades");
+  let query = {Renta: true};
+  let result = await collection.find(query).toArray();
+
+  if (!result) res.send("Not found").status(404);
+  else res.send(result).status(200);
+})
+
+router.get("/filtro/venta", async (req, res) => {
+  let collection = await db.collection("Propiedades");
+  let query = {Venta: true};
+  let result = await collection.find(query).toArray();
+
+  if (!result) res.send("Not found").status(404);
+  else res.send(result).status(200);
+})
 /* 
     {
         "_id": "63255e4763966c933163592f",

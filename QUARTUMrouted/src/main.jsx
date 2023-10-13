@@ -17,47 +17,42 @@ import {
   redirect,
 } from "react-router-dom";
 
-const toPropiedades = async () => {
- 
-  if (!true) {
-    return redirect("/propiedades");
-  }
-  return null;
-};
-
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    // refactor
-    Component: Nav,
-    loader: toPropiedades,
+    path: '/',
+    element: <Nav />,
     errorElement: <ErrorPage />,
     children: [
-      {
-        index: true,
-        path: "propiedades",
-        element: <Root />,
-        loader: rootLoader,
-        action: rootAction,
-      },
-      {
-        path: ":propiedadId",
-        element: <Propiedad />,
-        loader: porpiedadLoader,
-      },
-      {
-        path: "contacto",
-        element: <Contacto/> ,
-      },
-      {
-        path: "legal",
-        element: <Legal/>,
 
-      },
+  {
+    path: "/",
+    element: <Root />,
+    loader: rootLoader,
+    action: rootAction,
+
+  },
+  {
+    path: "propiedades/:propiedadId",
+    element: <Propiedad />,
+    loader: porpiedadLoader,
+  },
+
+  {
+    path: "contacto",
+    element: <Contacto />,
+  },
+  {
+    path: "legal",
+    element: <Legal />,
+
+  },
     ]
   }
+
 ])
+
+
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(

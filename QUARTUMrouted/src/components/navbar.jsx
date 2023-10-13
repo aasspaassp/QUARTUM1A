@@ -4,7 +4,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-  { name: 'Propiedades', href: '/propiedades', current: false },
+  { name: 'Propiedades', href: '/', current: false },
   { name: 'Legal', href: '/legal', current: false },
   { name: 'Contacto', href: '/contacto', current: false },
 ]
@@ -35,13 +35,13 @@ export default function Nav() {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center">
+                <Link to={'/'} className="flex flex-shrink-0 items-center">
                   <img
                     className="h-8 w-auto"
                     src="../../logo quartum (1).png"
                     alt="Your Company"
                   />
-                </div>
+                </Link>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
@@ -86,7 +86,7 @@ export default function Nav() {
         </>
       )}
     </Disclosure>
-    <Outlet />
+<Outlet />
 
     </>
   )

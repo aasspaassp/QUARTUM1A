@@ -1,0 +1,31 @@
+{
+    "MainAddress": "",
+    "Zona": "",
+    "Precio": 0,
+    "Coordinates": [
+        21.0534629,
+        -89.6801361
+    ],
+    "ShortDescription": ".",
+    "Renta": false,
+    "Venta": true,
+    "Fotos": [
+        "https://drive.google.com/file/d/1_MXQd0teGcfNHbUlGO-oW9I5uvLFZy1P/view?usp=drive_link",
+        ""
+    ],
+    "Recamaras": 2,
+    "Baños": 2,
+    "Estacionamiento": 1,
+    "MetrosConstruccion": 67.5,
+    "MetrosTerreno": 67.5,
+    "Niveles": 1,
+    "Equipamento": [
+        "Amueblado",
+        "Cocina Equipada"
+    ],
+    "Amenidades": [
+        "Piscina"
+    ],
+    "Vendido": false,
+    "porMetroCuadrado": false
+}
