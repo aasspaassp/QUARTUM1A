@@ -1,9 +1,11 @@
 import { Link, useLoaderData, Form, Outlet } from "react-router-dom";
+import { useState } from "react";
+import Switch from "../components/switch";
 import Nav from '../components/navbar'
 
 export async function loader() {
   // TO DO Add development mode
-  const response = await fetch(`http://localhost:5050/propiedades`);
+  const response = await fetch(`/propiedades`);
 
   if (!response.ok) {
     const message = `An error occurred: ${response.statusText}`;
@@ -41,8 +43,11 @@ export async function action(propiedad) {
 
 export default function Root() {
   const { propiedades } = useLoaderData();
+  const [query, setQuery] = useState('venta');
+
   return (
     <>
+       <Switch />
       <div>
         {propiedades.length ? (
           <div className="bg-white py-24 sm:py-32">

@@ -33,6 +33,40 @@ const router = createBrowserRouter([
 
   },
   {
+    path: "/venta",
+    element: <Root/>,
+    loader: async () => {
+      const response = await fetch(`/propiedades/filtro/venta`);
+
+      if (!response.ok) {
+        const message = `An error occurred: ${response.statusText}`;
+        window.alert(message);
+        return;
+      }
+    
+      const propiedades = await response.json();
+      console.log('respuesta servidor', propiedades)
+      return { propiedades }
+    }  
+  },
+  {
+    path: "/renta",
+    element: <Root/>,
+    loader: async () => {
+      const response = await fetch(`/propiedades/filtro/renta`);
+
+      if (!response.ok) {
+        const message = `An error occurred: ${response.statusText}`;
+        window.alert(message);
+        return;
+      }
+    
+      const propiedades = await response.json();
+      console.log('respuesta servidor', propiedades)
+      return { propiedades }
+    }  
+  },
+  {
     path: "propiedades/:propiedadId",
     element: <Propiedad />,
     loader: porpiedadLoader,
