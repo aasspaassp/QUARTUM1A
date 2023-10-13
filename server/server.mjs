@@ -12,7 +12,7 @@ app.use(express.static('build'))
 
 app.use("/propiedades", propiedades);
 
-// start the Express server
+// start the Express servernpm 
 app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);
 });

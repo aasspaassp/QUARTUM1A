@@ -17,47 +17,76 @@ import {
   redirect,
 } from "react-router-dom";
 
-const toPropiedades = async () => {
- 
-  if (!true) {
-    return redirect("/propiedades");
-  }
-  return null;
-};
-
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    // refactor
-    Component: Nav,
-    loader: toPropiedades,
+    path: '/',
+    element: <Nav />,
     errorElement: <ErrorPage />,
     children: [
-      {
-        index: true,
-        path: "propiedades",
-        element: <Root />,
-        loader: rootLoader,
-        action: rootAction,
-      },
-      {
-        path: ":propiedadId",
-        element: <Propiedad />,
-        loader: porpiedadLoader,
-      },
-      {
-        path: "contacto",
-        element: <Contacto/> ,
-      },
-      {
-        path: "legal",
-        element: <Legal/>,
 
-      },
+  {
+    path: "/",
+    element: <Root />,
+    loader: rootLoader,
+    action: rootAction,
+
+  },
+  {
+    path: "/venta",
+    element: <Root/>,
+    loader: async () => {
+      const response = await fetch(`/propiedades/filtro/venta`);
+
+      if (!response.ok) {
+        const message = `An error occurred: ${response.statusText}`;
+        window.alert(message);
+        return;
+      }
+    
+      const propiedades = await response.json();
+      console.log('respuesta servidor', propiedades)
+      return { propiedades }
+    }  
+  },
+  {
+    path: "/renta",
+    element: <Root/>,
+    loader: async () => {
+      const response = await fetch(`/propiedades/filtro/renta`);
+
+      if (!response.ok) {
+        const message = `An error occurred: ${response.statusText}`;
+        window.alert(message);
+        return;
+      }
+    
+      const propiedades = await response.json();
+      console.log('respuesta servidor', propiedades)
+      return { propiedades }
+    }  
+  },
+  {
+    path: "propiedades/:propiedadId",
+    element: <Propiedad />,
+    loader: porpiedadLoader,
+  },
+
+  {
+    path: "contacto",
+    element: <Contacto />,
+  },
+  {
+    path: "legal",
+    element: <Legal />,
+
+  },
     ]
   }
+
 ])
+
+
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(

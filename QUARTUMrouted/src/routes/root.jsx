@@ -1,4 +1,7 @@
 import { Link, useLoaderData, Form, Outlet } from "react-router-dom";
+import { useState } from "react";
+import Switch from "../components/switch";
+import Nav from '../components/navbar'
 
 export async function loader() {
   // TO DO Add development mode
@@ -40,8 +43,11 @@ export async function action(propiedad) {
 
 export default function Root() {
   const { propiedades } = useLoaderData();
+  const [query, setQuery] = useState('venta');
+
   return (
     <>
+       <Switch />
       <div>
         {propiedades.length ? (
           <div className="bg-white py-24 sm:py-32">
@@ -54,7 +60,7 @@ export default function Root() {
               </div>
               <ul role="list" className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
                 {propiedades.map((propiedad) => (
-                  <Link to={`/${propiedad._id}`}>
+                  <Link to={`propiedades/${propiedad._id}`}>
                   <li key={propiedad._id}>
                     <div className="flex items-center gap-x-6">
                       <div key={propiedad.Fotos[0]}>
