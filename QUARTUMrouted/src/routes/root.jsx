@@ -1,11 +1,14 @@
 import { Link, useLoaderData, Form, Outlet } from "react-router-dom";
+
 import { useState } from "react";
+
 import Switch from "../components/switch";
 import Nav from '../components/navbar'
+import TipoDePropiedad from "../components/tipoDePropiedad";
 
 export async function loader() {
   // TO DO Add development mode
-  const response = await fetch(`/propiedades`);
+  const response = await fetch(`/api`);
 
   if (!response.ok) {
     const message = `An error occurred: ${response.statusText}`;
@@ -43,26 +46,44 @@ export async function action(propiedad) {
 
 export default function Root() {
   const { propiedades } = useLoaderData();
-  const [query, setQuery] = useState('venta');
+
+  const [filters, setFilters] = useState({
+    tipoDePropiedad: '',
+    venta: true,
+    renta: false,
+  })
+
+  const filteredItems = propiedades.filter((item) => {
+    const { tipoDePropiedad, venta, renta } = filters;
+
+    // Check if the item matches the filters
+    return (
+      (tipoDePropiedad === '' || item.tipoDePropiedad === tipoDePropiedad) &&
+      (venta === true || !venta || item.Venta === venta) &&
+      (renta === true || !renta || item.Renta === renta)
+    );
+  });
 
   return (
     <>
-       <Switch />
-      <div>
-        {propiedades.length ? (
-          <div className="bg-white py-24 sm:py-32">
-            <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
-              <div className="max-w-2xl">
+  
+       <Switch className='justify-self-center' />
+       <TipoDePropiedad />
+       <div className="max-w-2xl p-8">
                 <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Conoce nuestras propiedades:</h2>
                 <p className="mt-6 text-lg leading-8 text-gray-600">
                   Renta y venta de propiedades amplias, cómodas y seguras.
                 </p>
               </div>
-              <ul role="list" className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
-                {propiedades.map((propiedad) => (
+      <div>
+        {propiedades.length ? (
+          <div className="bg-white py-24 sm:py-32">
+            <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-2">
+              <ul role="list" className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-3">
+                {filteredItems.map((propiedad) => (
                   <Link to={`propiedades/${propiedad._id}`}>
                   <li key={propiedad._id}>
-                    <div className="flex items-center gap-x-6">
+                    <div className="flex items-center gap-x-6 flex-col">
                       <div key={propiedad.Fotos[0]}>
                         <img
                           src={`https://drive.google.com/uc?export=view&id=${propiedad.Fotos[0].slice(propiedad.Fotos[0].indexOf("d/") + 2, propiedad.Fotos[0].indexOf("/view"))}` || null}
@@ -73,7 +94,7 @@ export default function Root() {
                       </div>
                       <div>
                         <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">{propiedad.MainAddress}</h3>
-                        <p className="text-sm font-semibold leading-6 text-indigo-600">${propiedad.Precio}</p>
+                        <p className="text-sm font-semibold leading-6 text-indigo-600">{new Intl.NumberFormat('mx-MX', { style: 'currency', currency: 'MXN' }).format(Number.parseFloat(propiedad.Precio))}</p>
                       </div>
                     </div>
                   </li>

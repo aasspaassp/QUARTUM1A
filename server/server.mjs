@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('build'))
 
-app.use("/propiedades", propiedades);
+app.use("/api", propiedades);
 
 // start the Express servernpm 
 app.listen(PORT, () => {

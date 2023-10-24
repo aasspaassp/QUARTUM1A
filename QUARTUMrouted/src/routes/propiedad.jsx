@@ -5,7 +5,7 @@ import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
 
 export async function loader({ params }) {
-  const response = await fetch(`/propiedades/${params.propiedadId}`);
+  const response = await fetch(`/api/${params.propiedadId}`);
   if (!response.ok) {
     const message = `An error occurred: ${response.statusText}`;
     window.alert(message);
@@ -44,8 +44,6 @@ export default function Propiedad() {
       />
     </div>
   )
-
-
 
   return (
 
@@ -108,7 +106,7 @@ export default function Propiedad() {
           {/* Options */}
           <div className="mt-4 lg:row-span-3 lg:mt-0">
             <h2 className="sr-only">propiedad information</h2>
-            <p className="text-3xl tracking-tight text-gray-900">{propiedad.Price}</p>
+            <p className="text-3xl tracking-tight text-gray-900">{new Intl.NumberFormat('mx-MX', { style: 'currency', currency: 'MXN' }).format(Number.parseFloat(propiedad.Precio))}</p>
 
             {/* Reviews */}
             <div className="mt-6">
