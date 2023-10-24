@@ -12,6 +12,10 @@ app.use(express.static('build'))
 
 app.use("/api", propiedades);
 
+app.get('*', function (req, res) {
+  res.sendFile(path.resolve(__dirname, './build/index.html'));
+});
+
 // start the Express servernpm 
 app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);
