@@ -17,7 +17,7 @@ const people = [
   },
   {
     id: 4,
-    name: 'Oficina',
+    name: 'Oficinas',
   },
   {
     id: 5,
