@@ -8,7 +8,7 @@ import TipoDePropiedad from "../components/tipoDePropiedad";
 
 export async function loader() {
   // TO DO Add development mode
-  const response = await fetch(`/api`);
+  const response = await fetch(`/`);
 
   if (!response.ok) {
     const message = `An error occurred: ${response.statusText}`;
