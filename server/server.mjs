@@ -13,14 +13,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'build')));
 
-app.use("/", propiedades);
+app.use("/api", propiedades);
 
 app.get('/*', function (req, res) {
   res.sendFile(path.resolve(__dirname, './build/index.html'));
-});
-
-app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 // start the Express servernpm 
