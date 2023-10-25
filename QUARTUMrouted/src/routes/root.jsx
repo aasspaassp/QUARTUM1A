@@ -81,7 +81,7 @@ export default function Root() {
             <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-2">
               <ul role="list" className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-3">
                 {filteredItems.map((propiedad) => (
-                  <Link to={`propiedades/${propiedad._id}`}>
+                  <Link to={`/${propiedad._id}`}>
                   <li key={propiedad._id}>
                     <div className="flex items-center gap-x-6 flex-col">
                       <div key={propiedad.Fotos[0]}>

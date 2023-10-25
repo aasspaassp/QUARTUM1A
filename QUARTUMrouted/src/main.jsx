@@ -33,14 +33,16 @@ const router = createBrowserRouter([
     element: <Root />,
     loader: rootLoader,
     action: rootAction,
+    children: [
+      
+    ]
 
   },
   {
-    path: "propiedades/:propiedadId",
+    path: ":propiedadId",
     element: <Propiedad />,
     loader: porpiedadLoader,
   },
-
   {
     path: "contacto",
     element: <Contacto />,
