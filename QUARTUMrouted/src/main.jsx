@@ -14,6 +14,7 @@ import Propiedad, {
 import Contacto from './routes/contacto'
 import Legal from './routes/legal'
 import Nav from './components/navbar'
+import Header from './components/header'
 
 import {
   createBrowserRouter,
@@ -30,13 +31,13 @@ const router = createBrowserRouter([
 
   {
     path: "/",
+    element: <Header/>,
+  },
+  {
+    path: "/propiedades",
     element: <Root />,
     loader: rootLoader,
     action: rootAction,
-    children: [
-      
-    ]
-
   },
   {
     path: ":propiedadId",
