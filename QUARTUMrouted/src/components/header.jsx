@@ -17,7 +17,7 @@ export default function Header() {
       <div className="relative px-6 lg:px-2">
         <div className="mx-auto max-w-4xl py-4 sm:py-48 lg:py-7">
         <img
-          src="./public/Página principal Quartum.jpg"
+          src="https://drive.google.com/uc?export=view&id=1TH1qX59Y6uzhLWrqQGOnP6dSL1GCTa5w"
           alt="header"
           className="mb-6"
         />
