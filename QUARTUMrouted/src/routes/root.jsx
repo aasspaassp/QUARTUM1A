@@ -2,9 +2,9 @@ import { Link, useLoaderData, Form, Outlet } from "react-router-dom";
 
 import { useState } from "react";
 
-import Switch from "../components/switch";
-import Nav from '../components/navbar'
+
 import TipoDePropiedad from "../components/tipoDePropiedad";
+import Filterbar from "../components/filterbar";
 
 export async function loader() {
   // TO DO Add development mode
@@ -48,39 +48,48 @@ export default function Root() {
   const { propiedades } = useLoaderData();
 
   const [filters, setFilters] = useState({
-    tipoDePropiedad: '',
     venta: true,
-    renta: false,
+    renta: true,
+    categoria: 'todo'
   })
 
-  const filteredItems = propiedades.filter((item) => {
-    const { tipoDePropiedad, venta, renta } = filters;
+  function getFilteredPropiedades(propiedades, filters) {
+    let newList = [...propiedades];
+    if (filters.venta && filters.renta && filters.categoria === 'todo') {
+      return newList
+    }
+    if (filters.venta && !filters.renta) {
+      newList = newList.filter(propiedad => propiedad.Venta)
+    }
+    if(!filters.venta && filters.renta){
+      newList = newList.filter(propiedad => propiedad.Renta)
+    }
+    return filters.categoria === 'todo'? newList : newList.filter(propiedad => propiedad.tipoDePropiedad === filters.categoria)
+  }
 
-    // Check if the item matches the filters
-    return (
-      (tipoDePropiedad === '' || item.tipoDePropiedad === tipoDePropiedad) &&
-      (venta === true || !venta || item.Venta === venta) &&
-      (renta === true || !renta || item.Renta === renta)
-    );
-  });
+  const visiblePropiedades = getFilteredPropiedades(propiedades, filters);
+
+
+
 
   return (
     <>
   
-       <Switch className='justify-self-center' />
-       <TipoDePropiedad />
+   
        <div className="max-w-2xl p-8">
                 <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Conoce nuestras propiedades:</h2>
                 <p className="mt-6 text-lg leading-8 text-gray-600">
                   Renta y venta de propiedades amplias, cómodas y seguras.
                 </p>
               </div>
+        <Filterbar className='justify-self-center' filterFunction={setFilters} />
+       <TipoDePropiedad filterFunction={setFilters} />
       <div>
-        {propiedades.length ? (
+        {visiblePropiedades.length ? (
           <div className="bg-white py-24 sm:py-32">
             <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-2">
               <ul role="list" className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-3">
-                {filteredItems.map((propiedad) => (
+                {visiblePropiedades.map((propiedad) => (
                   <Link to={`/${propiedad._id}`}>
                   <li key={propiedad._id}>
                     <div className="flex items-center gap-x-6 flex-col">
