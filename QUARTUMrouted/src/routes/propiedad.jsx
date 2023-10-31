@@ -107,6 +107,7 @@ export default function Propiedad() {
           <div className="mt-4 lg:row-span-3 lg:mt-0">
             <h2 className="sr-only">propiedad information</h2>
             <p className="text-3xl tracking-tight text-gray-900">{new Intl.NumberFormat('mx-MX', { style: 'currency', currency: 'MXN' }).format(Number.parseFloat(propiedad.Precio))}</p>
+            {propiedad.porMetroCuadrado && <p className="text-s font-semibold leading-6">por metro cuadrado</p>}
 
             {/* Reviews */}
             <div className="mt-6">
