@@ -14,6 +14,7 @@ import Propiedad, {
 import Contacto from './routes/contacto'
 import Legal from './routes/legal'
 import Nav from './components/navbar'
+//import Header from './components/header'
 import Header from './components/header'
 
 import {
