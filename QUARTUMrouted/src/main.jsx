@@ -15,7 +15,7 @@ import Contacto from './routes/contacto'
 import Legal from './routes/legal'
 import Nav from './components/navbar'
 //import Header from './components/header'
-import Header from './components/header'
+import ImageHeader from './components/imageHeader'
 
 import {
   createBrowserRouter,
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
 
   {
     path: "/",
-    element: <Header/>,
+    element: <ImageHeader/>,
   },
   {
     path: "/propiedades",

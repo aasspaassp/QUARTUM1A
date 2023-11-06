@@ -31,7 +31,7 @@ export default function Filterbar({filterFunction}) {
         <>
             <div className="border-b border-gray-900/10 pb-12">
 
-                <div className="mt-10 space-y-10">
+                <div className="space-y-10">
                     <fieldset>
                         <legend className="text-sm font-semibold leading-6 text-gray-900">Tipo:</legend>
                         <div className="mt-6 space-y-6">

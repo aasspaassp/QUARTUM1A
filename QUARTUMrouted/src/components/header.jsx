@@ -5,7 +5,7 @@ export default function Header() {
 
   return (
     <div className="bg-white">
-      <div className="relative px-6 lg:px-2">
+      <div className="relative px-4 lg:px-2">
         <div className="mx-auto max-w-4xl py-4 sm:py-48 lg:py-7">
         <img
           src="https://drive.google.com/uc?export=view&id=1TH1qX59Y6uzhLWrqQGOnP6dSL1GCTa5w"
@@ -14,7 +14,7 @@ export default function Header() {
         />
           <div className="text-center">
             <h1 className="text-1xl font-bold tracking-tight px-10 text-gray-900 sm:text-6xl">
-              Propiedades seguras en las mejores zonas de Mérida.
+              Somos asesores inmobiliarios y ofrecemos certeza jurídica
             </h1>
 
             <div className="mt-10 flex items-center px-10 justify-center gap-x-6">
@@ -33,8 +33,7 @@ export default function Header() {
           aria-hidden="true"
         >
         </div>
-      </div>
-      <div className="absolute left-1/2 top-0 -z-10 -translate-x-1/2 blur-3xl xl:-top-6" aria-hidden="true">
+        <div className="absolute left-1/2 top-0 -z-10 -translate-x-1/2 blur-3xl xl:-top-6" aria-hidden="true">
         <div
           className="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"
           style={{
@@ -43,6 +42,8 @@ export default function Header() {
           }}
         />
       </div>
+      </div>
+
     </div>
   )
 }

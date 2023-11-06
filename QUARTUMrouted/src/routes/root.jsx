@@ -82,11 +82,13 @@ export default function Root() {
                   Renta y venta de propiedades amplias, cómodas y seguras.
                 </p>
               </div>
-        <Filterbar className='justify-self-center' filterFunction={setFilters} />
-       <TipoDePropiedad filterFunction={setFilters} />
+              <div className="flex flex-col justify-around xl:flex-row px-6">
+        <Filterbar className='px-4' filterFunction={setFilters} />
+       <TipoDePropiedad className='px-4' filterFunction={setFilters} />
+       </div>
       <div>
         {visiblePropiedades.length ? (
-          <div className="bg-white py-24 sm:py-32">
+          <div className="bg-white py-12 sm:py-12">
             <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-2">
               <ul role="list" className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-3">
                 {visiblePropiedades.map((propiedad) => (
