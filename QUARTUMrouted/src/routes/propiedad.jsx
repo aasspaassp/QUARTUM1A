@@ -5,7 +5,7 @@ import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
 
 export async function loader({ params }) {
-  const response = await fetch(`http://localhost:5050/api/${params.propiedadId}`);
+  const response = await fetch(`/api/${params.propiedadId}`);
   if (!response.ok) {
     const message = `An error occurred: ${response.statusText}`;
     window.alert(message);

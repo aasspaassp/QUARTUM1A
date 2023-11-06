@@ -8,7 +8,7 @@ import Filterbar from "../components/filterbar";
 
 export async function loader() {
   // TO DO Add development mode
-  const response = await fetch(`http://localhost:5050/api`);
+  const response = await fetch(`/api`);
 
   if (!response.ok) {
     const message = `An error occurred: ${response.statusText}`;
