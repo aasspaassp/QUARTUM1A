@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 
 export default function Header() {
 
+  headerText='Ofrecemos asesoría inmobiliaria personalizada y certeza jurídica'
+
   return (
     <div className="bg-white">
       <div className="relative px-4 lg:px-2">
@@ -14,7 +16,7 @@ export default function Header() {
         />
           <div className="text-center">
             <h1 className="text-1xl font-bold tracking-tight px-10 text-gray-900 sm:text-6xl">
-              Somos asesores inmobiliarios y ofrecemos certeza jurídica
+           {headerText}
             </h1>
 
             <div className="mt-10 flex items-center px-10 justify-center gap-x-6">
