@@ -3,6 +3,8 @@ import { Form, useLoaderData } from "react-router-dom";
 import { useState } from 'react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
+import devUrl from '../constants/ambiente'
+import WhatsappButton from "../components/whatsappButton";
 
 export async function loader({ params }) {
   const response = await fetch(`/api/${params.propiedadId}`);
@@ -14,7 +16,6 @@ export async function loader({ params }) {
   const propiedad = await response.json();
   console.log('respuesta servidor', propiedad)
   return { propiedad }
-
 }
 
 function classNames(...classes) {
@@ -32,7 +33,6 @@ export default function Propiedad() {
 
 
   const { propiedad } = useLoaderData();
-  console.log(propiedad);
 
   const fotos = propiedad.Fotos.map((foto) =>
     <div key={foto}>
@@ -108,30 +108,7 @@ export default function Propiedad() {
             <h2 className="sr-only">propiedad information</h2>
             <p className="text-3xl tracking-tight text-gray-900">{new Intl.NumberFormat('mx-MX', { style: 'currency', currency: 'MXN' }).format(Number.parseFloat(propiedad.Precio))}</p>
             {propiedad.porMetroCuadrado && <p className="text-s font-semibold leading-6">por metro cuadrado</p>}
-
-            {/* Reviews */}
-            <div className="mt-6">
-              <h3 className="sr-only">Reviews</h3>
-              <div className="flex items-center">
-              <p>Calificación:</p>
-                <div className="flex items-center">
-                
-                  {[0, 1, 2, 3, 4].map((rating) => (
-                    <StarIcon
-                      key={rating}
-                      className={classNames(
-                        reviews.average > rating ? 'text-gray-900' : 'text-gray-200',
-                        'h-5 w-5 flex-shrink-0'
-                      )}
-                      aria-hidden="true"
-                    />
-                  ))}
-                </div>
-    
-                <p className="sr-only">{reviews.average}</p>
-        
-              </div>
-            </div>
+            <WhatsappButton />
 
             {/* <form className="mt-10">
            
