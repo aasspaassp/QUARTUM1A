@@ -1,6 +1,6 @@
 import { Link, useLoaderData, Form, Outlet } from "react-router-dom";
-
 import { useState } from "react";
+import devEnv from '../constants/ambiente'
 
 
 import TipoDePropiedad from "../components/tipoDePropiedad";
