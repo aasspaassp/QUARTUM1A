@@ -37,7 +37,7 @@ export default function Propiedad() {
   const fotos = propiedad.Fotos.map((foto) =>
     <div key={foto}>
       <img
-        src={`https://drive.google.com/uc?export=view&id=${foto.slice(foto.indexOf("d/") + 2, foto.indexOf("/view"))}` || null}
+        src={`https://lh3.googleusercontent.com/d/${foto.slice(foto.indexOf("d/") + 2, foto.indexOf("/view"))}` || null}
         alt="foto propiedad"
         loading="lazy"
         className="h-full w-full object-cover object-center"

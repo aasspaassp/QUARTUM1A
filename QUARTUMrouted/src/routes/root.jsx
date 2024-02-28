@@ -97,7 +97,7 @@ export default function Root() {
                     <div className="flex items-center gap-x-6 flex-col">
                       <div key={propiedad.Fotos[0]}>
                         <img
-                          src={`https://drive.google.com/uc?export=view&id=${propiedad.Fotos[0].slice(propiedad.Fotos[0].indexOf("d/") + 2, propiedad.Fotos[0].indexOf("/view"))}` || null}
+                          src={`https://lh3.googleusercontent.com/d/${propiedad.Fotos[0].slice(propiedad.Fotos[0].indexOf("d/") + 2, propiedad.Fotos[0].indexOf("/view"))}` || null}
                           alt="foto propiedad"
                           loading="lazy"
                           className="h-full w-full object-cover object-center"
